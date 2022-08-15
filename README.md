@@ -29,19 +29,22 @@ install_github("Anonymous1346/permimp")
     * ```n_samples``` is set to 300 and ```n_featues``` is set to 100
     * Uncomment all the ```rho``` values
     * Set ```prob_sim_data``` to ```regression_perm```
+    * The csv file can be downloaded at ```https://drive.google.com/file/d/1nzWc0b3FPNnghd-HfjPrMSFf5HZjkEaJ/view?usp=sharing```
   
   * For the **second experiment**:
     * Keep both ```dnn_py``` and ```dnn_py_cond``` uncommented
     * Set ```n_samples``` to ```n_samples = `if`(!DEBUG, seq(100, 1000, by = 100), 10L)``` (Uncomment the line directly below)
     * Set ```n_features``` to 50
     * In ```prob_sim_data```, comment ```regression_perm``` and uncomment all the rest
+    * The csv file can be downloaded at ```https://drive.google.com/file/d/1e5djTGRn9SLIjxdMgPEKnjbBFH1D1Vy_/view?usp=sharing```
     
   * For the **third experiment**:
     * Uncomment all the methods
     * Set ```n_samples``` to 1000 and ```n_features``` to 50
     * In ```prob_sim_data```, comment ```regression_perm``` and uncomment all the rest
-  
-  * Once the simulated data is computed (you can find also the 3 csv files for the experiments already processed), we move to the ```plot_simulations_all``` (Don't forget to change the name of the file to save with each expirement as it will be used later for the plots):
+    * The csv file can be downloaded at ```https://drive.google.com/file/d/1iaKRp9i9H4MCz_n6Bxb713JIP1SuFVgH/view?usp=sharing```
+
+  * Once the simulated data is computed, we move to the ```plot_simulations_all``` (Don't forget to change the name of the file to save with each expirement as it will be used later for the plots):
     * For the **first experiment**:
       * Change ```source``` to ```source("utils/plot_methods_all_Mi.R")```
       * Set ```run_plot_auc```, ```run_plot_type1error```, ```run_plot_power``` and ```run_time``` to TRUE
@@ -59,6 +62,7 @@ install_github("Anonymous1346/permimp")
       
   * For the **forth experiment**, we move to the ```ukbb``` folder:
     * The data are the public data from UKBB that needs to sign an agreement before using it (Any personal data are already removed)
+    * The csv file can be downloaded at ```https://drive.google.com/file/d/1ECfny4IOzoDn3yVBAvTO4wgDNtWmkVJ8/view?usp=sharing```
     * The ```ukbb_data_intelligence_no_hot_encoding``` csv file contains the needed data
     * In the ```process_intelligence``` script, set ```permfit_dnn`` and ```cpi_dnn``` to True to process the data and explore the importance of the variables
     * Finally, the plots are obtained using the ```Analyse_results``` script

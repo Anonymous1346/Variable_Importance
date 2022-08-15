@@ -64,7 +64,7 @@ install_github("Anonymous1346/permimp")
     * The data are the public data from UKBB that needs to sign an agreement before using it (Any personal data are already removed)
     * The csv file can be downloaded at ```https://drive.google.com/file/d/1ECfny4IOzoDn3yVBAvTO4wgDNtWmkVJ8/view?usp=sharing```
     * The ```ukbb_data_intelligence_no_hot_encoding``` csv file contains the needed data
-    * In the ```process_intelligence``` script, set ```permfit_dnn`` and ```cpi_dnn``` to True to process the data and explore the importance of the variables
+    * In the ```process_intelligence``` script, set ```permfit_dnn``` and ```cpi_dnn``` to True to process the data and explore the importance of the variables
     * Finally, the plots are obtained using the ```Analyse_results``` script
 
 * For the **predictive performance** of the core learners experiment:

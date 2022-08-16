@@ -71,9 +71,15 @@ brain_image = OrderedDict(list(brain_dmri_fa.items()) + list(brain_dmri_icvf.ite
                           list(brain_dmri_md.items()) + list(brain_dmri_mo.items()) + \
                           list(brain_dmri_od.items()) + list(brain_smri_plus.items())).values()
 
+def rename_numbers(x):
+    if x.isdigit():
+        return "rfMRI_" + x
+    else:
+        return x
+
 def color_blue_red(val):
-    if val in codes.values() or val.isdigit():
-        color = 'red' if ((val in brain_image) or (val.isdigit())) else 'blue'
+    if val in codes.values() or (val.split('_')[0] == 'rfMRI'):
+        color = 'red' if ((val in brain_image) or (val.split('_')[0] == 'rfMRI')) else 'blue'
     else:
         color = 'black'
     return 'color: %s' % color
@@ -89,6 +95,7 @@ def conv_label(x, data):
         return x
 
 df_1 = pd.read_csv("results_permfitdnn_intelligence_withscore_cross.csv")
+df_1['variable'] = df_1['variable'].apply(lambda x: rename_numbers(x))
 df_1['importance'] = df_1['importance'].apply(lambda x: "{:.2e}".format(x))
 df_1['p_value'] = df_1['p_value'].apply(lambda x: "{:.2e}".format(x))
 df_1 = df_1.astype({'p_value': 'str'})
@@ -96,6 +103,7 @@ res_df_1 = [conv_label(i, codes) for i in df_1.iloc[:nb_features, 0]]
 
 
 df_2 = pd.read_csv("results_cpidnn_intelligence_withscore_cross.csv")
+df_2['variable'] = df_2['variable'].apply(lambda x: rename_numbers(x))
 df_2['importance'] = df_2['importance'].apply(lambda x: "{:.2e}".format(x))
 df_2['p_value'] = df_2['p_value'].apply(lambda x: "{:.2e}".format(x))
 df_2 = df_2.astype({'p_value': 'str'})
@@ -126,4 +134,3 @@ text_file.close()
 imgkitoptions = {"format": "png"}
 imgkit.from_file("filename.html", "cpi_intelligence_cross.png", options=imgkitoptions)
 os.remove("filename.html")
-
